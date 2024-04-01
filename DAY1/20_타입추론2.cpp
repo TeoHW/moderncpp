@@ -4,8 +4,11 @@ template<typename T> void foo(T a)
 {
 	// T의 타입을 알고 싶다.
 	// 1. godbolt.org 에 넣어 보세요
-	// 
+	// 2. 생성된 함수 이름 출력
+
+	std::cout << __function__ std::endl;
 }
+
 int main()
 {	
 	// 타입을 전달하는 경우.
