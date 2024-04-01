@@ -12,11 +12,11 @@ int main()
 	}
 	// 위 코드를 컴파일러가 아래 코드로 변경합니다.
 	auto first = std::begin(v); // 또는 v.begin()
-	auto last = std::end(v);    // v.end()
+	auto last  = std::end(v);    // v.end()
 
 	for( ; first != last; ++first)
 	{
-		auto& b = *first;
+		auto& n = *first;
 		//---------------------------------
 		std::cout << n << std::endl;
 	}
