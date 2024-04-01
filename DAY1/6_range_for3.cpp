@@ -26,7 +26,11 @@ int main()
 //	auto last  = std::end(p);   // p.end()
 }
 
-
+// C++ 뿐 아니라
+// C# : foreach(int e in v)
+// python : for(    e in v)
+// 인데, 모두 v의 반복자를 꺼내는 코드를 생성하게 됩니다.
+// 즉, C++ 과 동일한 원리..
 
 
 
