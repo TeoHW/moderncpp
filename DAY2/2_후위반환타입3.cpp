@@ -17,3 +17,8 @@ int main()
 	a = 10; // ok. 변수를 선언후에 사용
 }
 
+// 파이썬도 타입표기할때는 아래 처럼
+/*
+def add(x:int, y:int) -> int
+	return x + y
+*/
