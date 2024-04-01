@@ -24,4 +24,9 @@ int main()
 	auto p1 = std::begin(v);
 	auto p2 = std::end(v);
 
+//	auto sz1 = v.size();	 // 배열은 안됨
+	auto sz1 = std::size(v); // 배열도 가능
+
+	// C++11 부터, 배열도 가능하게 하기 위해
+	// 위와같이 다양한 "일반함수"도 제공합니다.
 }
