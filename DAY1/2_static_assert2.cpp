@@ -32,7 +32,6 @@ template<typename T> void object_set_zero(T* p)
 class AAA
 {
 	int data;
-
 	virtual void foo() {}
 };
 
