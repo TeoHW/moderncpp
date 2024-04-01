@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <type_traits> 
+#include <cstring>
+
 #pragma pack(1)	// 구조체 멤버 정렬을 1byte align 사용
 struct PACKET
 {
@@ -21,7 +23,7 @@ int main()
 template<typename T> void object_set_zero(T* p)
 {
 	// std::is_polymorphic_v<T> : T가 가상함수가 있으면 true
-	
+
 	static_assert( ! std::is_polymorphic_v<T>, 
 					"error, T has virtual function" );
 
@@ -30,6 +32,8 @@ template<typename T> void object_set_zero(T* p)
 class AAA
 {
 	int data;
+
+	virtual void foo() {}
 };
 
 int main()
