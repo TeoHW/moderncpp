@@ -5,8 +5,13 @@ template<typename T> void foo(T a)
 	// T의 타입을 알고 싶다.
 	// 1. godbolt.org 에 넣어 보세요
 	// 2. 생성된 함수 이름 출력
-
-	std::cout << __function__ std::endl;
+	// __func__ : C++ 표준 매크로 - 함수 이름만 담고 있다.
+	// __PRETTY_FUNCTION__ : 함수이름 + 인자모양, 단, C++ 표준 아님.
+	//						g++, clang 에서만 사용가능
+	// __FUNCSIG__ : Visual studio 컴파일러
+	
+	//std::cout << __func__ << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 int main()
