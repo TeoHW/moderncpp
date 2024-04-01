@@ -9,7 +9,7 @@ enum class DAYOFWEEK : char { SUN = 0, MON = 1, TUE = 2 };
 
 int main()
 {
-	using T =  std::underlying_type<DAYOFWEEK>;
+	using T =  std::underlying_type<DAYOFWEEK>::type;
 
 	std::cout << typeid(T).name() << std::endl;
 
