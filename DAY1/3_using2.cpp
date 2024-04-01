@@ -18,4 +18,6 @@ int main()
 //	std::unordered_set<double> s2;
 	USET_I s1;
 	USET_D s2;
+
+	USET<int> s3;
 }
