@@ -10,10 +10,10 @@ template<typename T>
 auto myend(T& c) { return c.end();}
 
 // 배열 버전
-template<typenane T, int N>
+template<typename T, int N>
 auto mybegin( T(&arr)[N] ) { return arr; } // 배열의 이름은 배열의 주소
 
-template<typenane T, int N>
+template<typename T, int N>
 auto myend( T(&arr)[N] ) { return arr + N; } 
 
 
