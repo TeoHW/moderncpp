@@ -16,5 +16,9 @@ void foo(T a)
 }
 int main()
 {
-	
 }
+
+// 현재 C++ 에서 constexpr 은 3가지 용도 입니다.
+// 1. constexpr 상수(C++11) : constexpr int c = 10
+// 2. constexpr 함수(C++11) : constexpr int Factorial(int n) { ... }
+// 3. constexpr if  (C++17)
