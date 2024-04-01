@@ -4,17 +4,17 @@
 
 // 컨테이너 버전
 template<typename T>
-auto begin(T& c) { return c.begin();}
+auto mybegin(T& c) { return c.begin();}
 
 template<typename T>
-auto end(T& c) { return c.end();}
+auto myend(T& c) { return c.end();}
 
 // 배열 버전
 template<typenane T, int N>
-auto begin( T(&arr)[N] ) { return arr; } // 배열의 이름은 배열의 주소
+auto mybegin( T(&arr)[N] ) { return arr; } // 배열의 이름은 배열의 주소
 
 template<typenane T, int N>
-auto end( T(&arr)[N] ) { return arr + N; } 
+auto myend( T(&arr)[N] ) { return arr + N; } 
 
 
 int main()
