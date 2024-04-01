@@ -53,4 +53,16 @@ int main()
 		
 	}
 }
+/*
+// 파이썬
+(a, b) = foo();
+
+// C++ 스타일
+std::tuple<int, double> foo()
+{
+	return std::make_tuple(1, 3.4);
+}
+
+auto[a, b] = foo();
+*/
 
