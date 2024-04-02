@@ -17,5 +17,9 @@ int main()
 	std::cout << static_cast<Base>(d).value << std::endl;  // 10
 	std::cout << static_cast<Base&>(d).value << std::endl;  // 10
 
+	static_cast<Base>(d).value = 20;   // error
+	static_cast<Base&>(d).value = 20;  // ok
 }
+
+
 
