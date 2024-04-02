@@ -15,7 +15,23 @@ int main()
 	foo(r1);    // 1. int& 선택
 
 	int&& r2 = 10; 
-	foo(r2);    // ???
+	foo(r2);    // 1. int& 선택!!
+
+	// 데이타 타입과 value category 를 헷갈리지 마세요
+	int n = 0;
+	int& r1 = n;
+	int&& r2 = 10;
+	Point pt{1,2};
+	// 				타입		value category
+	// n			int			lvalue
+	// 10			int			rvalue
+	// pt			Point		lvalue
+	// Point{1,1}	Point		rvalue
+	// r1			int&		lvalue			
+	// r2			int&&		lvalue
+	//
+
+//	Point&& r = Point{1,2};
 }
 
 
