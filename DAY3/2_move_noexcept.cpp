@@ -20,7 +20,7 @@ int main()
 	Object o1;
 	Object o2 = o1; 			// 항상 copy
 	Object o3 = std::move(o1); 	// 항상 move
-	Object o4 = std::move_no_except(o2); // move 생성자에 예외가 없을때만 move
+	Object o4 = std::move_if_noexcept(o2); // move 생성자에 예외가 없을때만 move
 										 // 예외 가능성이 있으면 copy
 
 	std::vector<Object> v(5);
