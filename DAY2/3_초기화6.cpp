@@ -19,6 +19,10 @@ int main()
 
 	Point pt{};  // 모든 멤버를 0으로 초기화
 	std::cout << pt.x << std::endl;
+
+	int arr[10]{};
+
+	std::cout << arr[0] << std::endl;
 }
 
 
