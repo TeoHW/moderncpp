@@ -51,7 +51,28 @@ int main()
 
 	std::string s1 = "hello";
 	std::string s2 = std::move(s1);
+					// 1. static_cast< std::string&& >(s1)
+					// 2. std::string 의 move 생성자 호출됨,
+
+	int n1 = 10;
+	int n2 = std::move(n1); // static_cast<int&&>(n1) 인데
+							// int 는 user define type 아닙니다.
+							// 아무 일도 일어나지 않음.
+	Point p1{1,2};
+	Point p2 = std::move(p1); //static_cast< Point&& >(p1)
+				// 1. move 생성자를 만든적이 없습니다.
+				// 2. 복사 생성자는 컴파일러가 제공합니다.
+				// => move 생성자가 없을때 "복사 생성자는"
+				// => lvalue, rvalue 를 모두 받을수 있으므로 복사 생성자사용
+
+	int* p3 = new int;
+	int* p4 = std::move(p3); // int* p4 = p3; 와 동일!!
+	delete p3;
 }
+// 결론 : std::move() 의 효과는
+// 1. move 생성자를 만든 클래스에서만 효과가 있습니다.
+// 2. move 생성자를 만들지 않은 클래스에서는  복사 생성자 호출
+// 3. 사용자 정의 타입이 아닌 경우는 "아무 효과도 없다."
 
 
 
