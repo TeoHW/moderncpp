@@ -25,6 +25,8 @@
 //void foo(Point&& p) {}
 
 // 방법 4. T&& 를 사용하면 "방법3" 의 2개 함수를 자동생성할수 있다.
+// => 또한, Point 타입 뿐 아니라
+// => 모든 타입에 대해서 "방법3의 2개 함수 생성"
 template<typename T> void foo(T&& p) {}
 
 
