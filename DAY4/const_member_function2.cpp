@@ -15,7 +15,8 @@ public:
 };
 
 //void foo(Rect r) // call by value : 복사본에의한 메모리 오버헤드
-void foo(const Rect& r)
+//void foo( Rect& r) // 이렇게 하면 상수멤버함수가 아니라도 호출되지만, 임시객체를 받을수 없다.
+void foo( const Rect& r)
 {
 	int area = r.getArea();  // ???
 }
@@ -27,4 +28,6 @@ int main()
 	int area = r.getArea(); // ok
 
 	foo(r);
+	foo(Rect{1,1,10,10});
+	draw_line()
 }
