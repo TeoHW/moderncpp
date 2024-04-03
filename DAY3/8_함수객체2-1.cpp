@@ -13,13 +13,23 @@ public:
 	}
 
 	int operator()()
-	{	
+	{		
+		if ( bs.none() ) // 모두 0 이면
+		{
+			if ( recycle == true )
+				bs.set(); // 다시 모두 1
+			else
+				return -1;
+		}
+
+
 		int k = -1;
 
 		while( ! bs.test( k = rand() % 10 ) );
+
 		bs.reset(k);
 
-		return rand() % 10;
+		return k;
 	}
 };
 URandom urand; // urand 는 이제 객체 입니다.
