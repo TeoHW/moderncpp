@@ -7,8 +7,16 @@
 // 모두 받는 다는 의미는
 // => 받을수 있는 함수를 "생성" 한다는 의미 입니다.
 
-// int 의 lvalue(n) 전달하면  T = ?   T&& = ?    f4(? )
-// int 의 rvalue(3) 전달하면  T = ?   T&& = ?    f4(? )
+// int 의 lvalue(n) 전달하면  T = int&  T&& = int& &&  f4(int& ) 함수생성
+// int 의 rvalue(3) 전달하면  T = int   T&& = int&&    f4(int&&) 함수생성
+// ==> 생성된 함수는 "call by value" 가 아닌 "call by reference"!!!
+
+// T&& 이름
+// effective-C++ 책의 저자인 "scott-mayer" 가
+// "universal reference" 라고 부르자고 자신의 책에서 제안했지만
+// "forwarding reference" 라고 부르기로 결정..
+
+
 
 
 template<typename T> void f4(T&& a) {}
