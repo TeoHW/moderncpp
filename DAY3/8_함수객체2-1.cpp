@@ -1,9 +1,10 @@
 #include <iostream>
 #include <bitset>
 
+template<std::size_t N = 10>
 class URandom
 {
-	std::bitset<10> bs;
+	std::bitset<N> bs;
 	bool recycle;
 public:
 	URandom(bool b = false) : recycle(b) 
@@ -25,19 +26,21 @@ public:
 
 		int k = -1;
 
-		while( ! bs.test( k = rand() % 10 ) );
+		while( ! bs.test( k = rand() % N ) );
 
 		bs.reset(k);
 
 		return k;
 	}
 };
-URandom urand; // urand 는 이제 객체 입니다.
+//URandom urand; // urand 는 이제 객체 입니다.
+//URandom urand{true};  // 10
+URandom<20> urand{true};  
 
 
 int main()
 {
-	for ( int i = 0; i < 10; i++ )
+	for ( int i = 0; i < 15; i++ )
 		std::cout << urand() << ", ";
 	
 }
