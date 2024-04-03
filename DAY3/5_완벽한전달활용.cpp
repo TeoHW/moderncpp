@@ -31,6 +31,10 @@ int main()
 	v.emplace_back(1, 2);	
 			// 이 함수가 내부적으로 버퍼에 new Point(1,2)로 생성.
 
+			// main			emplace_back			Point(int, int)
+			// 1, 2전달 =====> 받아서 다시 전달 =======>  1,2 
+			//			완벽한 전달 기술이 없으면 
+			//			emplace_back 을 만들수 없다!
 
 
 
