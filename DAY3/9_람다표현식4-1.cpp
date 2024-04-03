@@ -16,9 +16,13 @@ int main()
 	*/
 
 	// 동일한 람다 표현식이 여러번 사용되면 되도록 auto 변수에 담아서 사용하세요
-	auto cmp = [](int a, int b) { return a < b;};
+//	auto cmp = [](int a, int b) { return a < b;};
 
-	sort( cmp );
-	sort( cmp );
-	sort( cmp );
+//	sort( cmp );
+//	sort( cmp );
+//	sort( cmp );
+
+	sort( std::less{} );
+	sort( std::less{} );
+	sort( std::less{} );
 }
