@@ -26,6 +26,11 @@ int main()
 	IsDivide f(k); 	// 1. f는 k 값을 보관(캡쳐) 합니다
 					// 2. f는 인자가 한개인 함수 처럼 사용 가능합니다.
 	bool b = f(10); // 10 % k == 0 의 의미
+
+	auto p1 = std::find_if(v.begin(), v.end(), f); 
+
+	// 함수객체는 함수 인자로 한번만 사용하면 "임시객체" 로 보내는 것이 효율적입니다.
+	auto p2 = std::find_if(v.begin(), v.end(), IsDivide{k} ); 
 }
 
 
