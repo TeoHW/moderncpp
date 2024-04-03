@@ -31,11 +31,17 @@ void chronometry( F f, T&& arg)
 {
 	f( static_cast<T&&>(arg));
 }
+
 int main()
 {
 	int n = 0;
 	// 아래 처럼 사용했을때 생성되는 함수의 모양과 캐스팅 코드의 모양을 생각해보세요
-	chronometry( foo, 10);
-	chronometry( goo, n);
+	chronometry( foo, 10); 	// T = int 	T&& = int&&
+							// chronometry( , int&& arg )
+						   	// => static_cast<int&&>(arg)
+
+	chronometry( goo, n);	// T = int& 	T&& = int& && => int&
+							// chronometry( , int& arg )
+						   	// => static_cast<int&>(arg)
 }
 
