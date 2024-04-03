@@ -26,3 +26,15 @@ int main()
 	sort( std::less{} );
 	sort( std::less{} );
 }
+/*
+class Point
+{
+public:
+	Point() = default;
+};
+
+int main()
+{
+	Point p;
+}
+*/
