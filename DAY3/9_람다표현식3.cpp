@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 
+auto add = [](int a, int b) {return a + b;};
+
 // auto 와 람다 표현식
 int main()
 {
@@ -19,4 +21,5 @@ int main()
 //					inner function, nested function 등의 개념
 //					C++ : 함수안에서 함수를 만들수 없지만
 //						  람다표현식으로 가능
+//					또한, main 함수 지역변수 캡쳐도 가능.
 
