@@ -41,5 +41,17 @@ int main()
 	std::cout << "-----" << std::endl;
 }
 
+// STL 컨테이너에(vector, list)
+// 1. int, double 등을 보관한다면 
+//    => push_back, push_front, insert 해도 됩니다.
 
+// 2. user define type( string, Point)등을 값으로 보관할때
+//    요소를 넣기만 할것이라면
+// => push_xxx 보다는 emplace_xxx 를 사용하세요
+//	  push_back => emplace_back
+//	  push_front => emplace_front
+//    insert     => emplace
+
+// 3. user define type의 포인터를 보관하면
+//    => push_back, push_front, insert 해도 됩니다.
 
