@@ -1,6 +1,9 @@
 #include <iostream>
 #include <bitset>
 
+// 함수객체 장점 1. 상태를 가지는 함수!!
+//				   => 멤버 데이타가 있다는 의미
+
 template<std::size_t N = 10>
 class URandom
 {
