@@ -4,6 +4,7 @@
 
 std::vector<int> v1;
 std::vector<int> v2;
+std::vector<int> v3;
 
 constexpr std::size_t size = 10'000'000; 	
 
@@ -11,6 +12,7 @@ void init()
 {
 	v1.reserve(size);
 	v2.reserve(size);
+	v3.reserve(size);
 
 	for( int i = 0; i < size; i++)
 	{	
@@ -18,6 +20,7 @@ void init()
 
 		v1.push_back(value);
 		v2.push_back(value);
+		v3.push_back(value);
 	}
 }
 
@@ -33,6 +36,13 @@ void use_lambda()
 	std::sort(v2.begin(), v2.end(), [](int a, int b) { return a < b;} );
 }
 
+struct Less   { inline bool operator()(int a, int b) { return a < b; }};
+
+void use_function_object()
+{
+	std::sort(v3.begin(), v3.end(),  Less{} );
+}
+
 int main()
 {	
 	init();
@@ -42,5 +52,6 @@ int main()
 	// g++ 소스이름.cpp -O2
 	chronometry(use_lambda);
 	chronometry(use_function);
+	chronometry(use_function_object);
 	
 }
