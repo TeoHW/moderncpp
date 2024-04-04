@@ -7,12 +7,17 @@
 
 template<typename T> struct is_pointer
 {
-	enum { value = false };
+//	bool value = false;		// C++11 이전에는 이렇게 초기화 안되고
+							// 이렇게 하면 상수가 아닌 변수
+//	enum { value = false }; // C++11 이전에는 enum이 최선이었다.
+
+	static constexpr bool value = false; // C++11 이후에는 이렇게
 };
 
 template<typename T> struct is_pointer<T*>
 {
-	enum { value = true };
+//	enum { value = true };
+	static constexpr bool value = true;
 };
 
 template<typename T> void foo(const T& a)
