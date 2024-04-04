@@ -18,4 +18,9 @@ int main()
 	register_callback(&foo);
 
 	register_callback( [](int a, int b) { std::cout << "lambda\n"; } );
+
+	int n = 0;
+	register_callback( [n](int a, int b) { std::cout << "lambda\n"; } );
+	
+	// 핵심 : 캡쳐하지 않은 람다 표현식만 함수 포인터로 변환 가능하다.
 }
