@@ -12,7 +12,7 @@ int main()
 
 	f2(100);
 
-	std::cout << v1 << ", " << v2 << std::endl; // 0, 0
+	std::cout << v1 << ", " << v2 << std::endl; // 100, 100
 
 	//-------------------------------------
 	class CompilerGeneratedName
@@ -31,7 +31,21 @@ int main()
 	auto f3 = CompilerGeneratedName{v1, v2}; 
 }
 
+class AAA 
+{
+	int data;
+	int& r;
+public:
+	AAA(int& a) : r(a) {}
 
+	void foo() const 
+	{
+		data = 10; // error. 상수 멤버함수에서 멤버 변경
+		r = 20;    // ?
+	}
+};
+int x = 0;
+AAA aaa(x);
 
 
 
