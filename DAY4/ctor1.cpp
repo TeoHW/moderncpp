@@ -14,16 +14,43 @@ struct DM // DerivedMember
 struct Base
 {
 	BM bm;
-	Base()      { std::cout << "Base()"    << std::endl; }
-	Base(int a) { std::cout << "Base(int)" << std::endl; }
-	~Base()     { std::cout << "~Base()"   << std::endl;}
+
+	// 개발자 코드		// 컴파일러가 변경한 코드
+	Base()      		// Base() : bm()
+	{ 
+		std::cout << "Base()"    << std::endl; 
+	}
+
+	Base(int a) 		// Base(int) : bm() 
+	{ 
+		std::cout << "Base(int)" << std::endl; 
+	}
+	~Base()     
+	{ 
+		std::cout << "~Base()"   << std::endl;
+		
+		// BM::~BM()
+	}
 };
 struct Derived : public Base 
 {
 	DM dm;
-	Derived()      { std::cout << "Derived()" << std::endl;	}
-	Derived(int a) { std::cout << "Derived()" << std::endl;	}
-	~Derived()     { std::cout << "~Derived()" << std::endl;}
+	Derived()      	// Derived() : Base(), dm()
+	{ 
+		std::cout << "Derived()" << std::endl;	
+	}
+
+	Derived(int a) // Derived(int ) : Base(), dm()
+	{ 
+		std::cout << "Derived()" << std::endl;	
+	}
+	~Derived()     
+	{ 
+		std::cout << "~Derived()" << std::endl;
+
+		// DM::~DM()
+		// Base::~Base()
+	}
 };
 int main()
 {
