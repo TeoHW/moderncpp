@@ -11,6 +11,7 @@ private:
 	std::string name;
 	std::string address;
 public:
+/*
 	// 핵심 : 멤버 2개를 동시에 set 하는 setter
 	void set(const std::string& n, const std::string& a)
 	{
@@ -37,6 +38,13 @@ public:
 
 	// 다른 방법이 필요합니다.
 	// => 완벽한 전달 기술을 사용하면 "함수템플릿" 한개로 모두 해결됩니다.
+	*/
+	template<typename T1, typename T2>
+	void set(T1&& n, T2&& a)
+	{
+		name = std::forward<T1>(n);
+		addr = std::forward<T2>(a);
+	}
 };
 
 int main()
