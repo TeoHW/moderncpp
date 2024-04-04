@@ -43,4 +43,5 @@ int main()
 
 	std::ranges::sort(v.begin(), v.end()); // C++20 부터이렇게 해도되고
 	std::ranges::sort(v); // 이렇게 해도 됩니다.
+	std::ranges::sort.operator()(v); // ok. 함수객체
 }
