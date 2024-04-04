@@ -54,6 +54,7 @@ struct Derived : public Base
 };
 int main()
 {
-	Derived d1; 
+	Derived d1; 	// call Derived::Derived()
+
 //	Derived d2(7);
 }
