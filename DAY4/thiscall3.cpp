@@ -14,5 +14,11 @@ int main()
 	void(Dialog::*f)(int) = &Dialog::member_function; // ok
 
 	// #2. 멤버 함수 포인터 사용법
-	f(10);
+//	f(10); // error. 객체가 없습니다. 객체.member_function() 이어야 합니다.
+
+	Dialog dlg;
+//	dlg.f(10); // error. dlg 안에 f라는 멤버는 없습니다.
+
+	// 이럴때 사용하는 연산자가 "pointer to member operator"인 .* 연산자
+	dlg.*f(10);
 }
