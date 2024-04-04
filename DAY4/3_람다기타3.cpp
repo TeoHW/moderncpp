@@ -9,11 +9,10 @@ public:
 	// 아래 와 같은 도움함수가 추가
 	inline static int helper(int a, int b)  
 	{ 
-		return ClosureType::operator()(a, b);
+		ClosureType ct;
+		return ct(a, b);
 	}
-
-
-	using FP = int(*)(int, init);
+	using FP = int(*)(int, int);
 
 	// 변환연산자 함수 : 객체가 다른 타입으로 변환이 필요 할때 호출
 	operator FP() { return &ClosureType::helper ; }
