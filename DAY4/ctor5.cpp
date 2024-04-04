@@ -3,8 +3,8 @@
 class Base
 {
 public:
-	Base()     { } 
-	void foo() { vfunc(); } 
+	Base()     { vfunc(); } // Base::foo
+	void foo() { vfunc(); } // Derived::foo
 	virtual void vfunc() { std::cout << "Base vfunc" << std::endl; }
 };
 
@@ -20,5 +20,5 @@ public:
 int main()
 {
 	Derived d;
-	d.foo();
+//	d.foo();
 }
