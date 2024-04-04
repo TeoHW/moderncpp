@@ -24,4 +24,7 @@ int main()
 	int ret = sum( 5, 1,2,3,4,5);
 	
 	std::cout << ret << std::endl;
+
+	// printf 는 1번째 인자로 나머지인자의 타입과 갯수를 알려 주고 있습니다.
+	printf("%d %f %s", 1, 3.4, "A");
 }
