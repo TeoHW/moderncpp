@@ -14,6 +14,9 @@ int main()
 
 	std::cout << v1 << ", " << v2 << std::endl; // 0, 0
 
+	std::cout << sizeof(f2) << std::endl; // 8
+
+
 	// 람다 지역변수 캡쳐의 원리
 	// => 멤버 데이타를 생성하는 것
 	class CompilerGeneratedName
