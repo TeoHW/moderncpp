@@ -10,10 +10,12 @@ template<typename T> struct remove_pointer
 {
 	using type = T;
 };
-template<typename T> struct remove_pointer<T*>
+
+template<typename T> struct remove_pointer< T* >
 {
 	using type = T;
 };
+
 int main()
 {
 	remove_pointer<int*>::type n1;  // int n1
