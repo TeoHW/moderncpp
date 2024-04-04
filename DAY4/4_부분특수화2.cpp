@@ -10,6 +10,19 @@ public:
 	{
 		buff = new T[sz];
 	}
+	~vector() { delete[] buff;}
+};
+template<>
+class vector<bool>
+{
+	int* buff;
+public:
+	vector(std::size_t sz)
+	{
+		buff = new int[(sz/32) + 1]; // 0~31 까지는 4바이트
+									 //31~63 까지는 8바이트
+	}
+	~vector() { delete[] buff;}
 };
 
 int main()
