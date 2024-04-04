@@ -1,7 +1,17 @@
 #include <iostream>
 
+class BaseWindow 
+{
+	int color;
+	int width;
+public:
+	void MoveWindow() {}
+	void Click()  { std::cout << "Window Click" << std::endl; }
+};
+// 구글에서 "C++ IDioms"검색후 1번째 링크
+
 template<typename T>
-class Window
+class Window : public BaseWindow
 {
 public:
 	void event_loop() 	// void event_loop(Window* this)
@@ -9,7 +19,6 @@ public:
 //		Click();		// this->Click();
 		static_cast<T*>(this)->Click();
 	}
-	void Click()  { std::cout << "Window Click" << std::endl; }
 };
 
 class MainWindow : public Window< MainWindow >
