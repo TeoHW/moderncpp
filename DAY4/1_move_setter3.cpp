@@ -21,6 +21,17 @@ public:
 	void set_name(const std::string& n) { name = n; }
 	void set_name(std::string&& n) { name = std::move(n); }
 
+	// T&& 를 사용하면 위 2개를 자동생성할수 있습니다.
+	// T&& 의도 : 인자로 & 버전과 && 버전의 함수를 자동생성하려고
+	template<typename T>
+	void set_name2(T&& n)
+	{
+		// 다음중 맞는 것은 ?
+		name = n;
+		name = std::move(n);
+		name = std::forward<T>(n);
+	}
+
 };
 
 int main()
