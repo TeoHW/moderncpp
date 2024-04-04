@@ -1,3 +1,5 @@
+#include <functional>
+
 class Dialog 
 {
 public:
@@ -20,5 +22,7 @@ int main()
 
 	// f1, f2의 사용법이 다르니까 불편합니다.
 	// 그래서 C++17에서 std::invoke 를 만들었습니다.
+	std::invoke(f1, 10);
+	std::invoke(f2, &dlg, 10);
 	
 }
