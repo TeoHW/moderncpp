@@ -15,22 +15,43 @@ public:
 	~vector() { delete[] buff;}
 
 	//---------------------------------------------------------
-	T& operator[](int idx) const { return buff[idx];}
+	// 해결책 : operator[] 를 2개 제공해야 합니다.
+	// => 상수 객체인 경우와 상수 객체가 아닌 경우
+	
+	// 상수 객체가 아닐때는 등호의 왼쪽에 올수 있게 해야 한다.
+	// => T& 반환
+	T& operator[](int idx)       { return buff[idx];}
+
+	// 상수 객체는 등호의 왼쪽에 올수 없어야 한다.
+	// T 반환 : 등호의 왼쪽에 올수 없는것은 만족하지만
+	//		    rvalue 반환 입니다. rvalue 는 주소를 구할수 없어서
+	//			"&v2[0]" 의 코드가 에러
+
+	// const T& : 등호에 왼쪽에 올수 없지만, lvalue 반환.
+	//			"&v2[0]" 이 가능합니다.
+//	T operator[](int idx) const { return buff[idx];}
+	const T& operator[](int idx) const { return buff[idx];}
 };
 
 int main()
 {
 	      vector<int> v1(10, 3);
 	const vector<int> v2(10, 3); 
-
 	int n = 0;
 
-	// #2. operator[] 가 상수 멤버 함수인 경우
-	//			// 원하는것 		현재 상태
-	n = v1[0];	// O				O
-	n = v2[0];  // O				O
-	v1[0] = 0;  // O				O
-	v2[0] = 0;  // X				O
+	n = v1[0];	// O				
+	n = v2[0];  // O				
+	v1[0] = 0;  // O				
+	v2[0] = 0;  // X			
+
+	std::cout << &v2[0] << std::endl; // 되야 할까요 ? 안되야 할까요 ?	
+
+
+	auto p1 = v1.begin();
+	auto p2 = v2.begin();
+
+	*p1 = 10;
+	*p2 = 10;
 
 }
 
