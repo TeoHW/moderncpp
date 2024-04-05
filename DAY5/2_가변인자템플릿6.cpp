@@ -12,7 +12,7 @@
 // 주의!!! : recursive 로 함수 호출을 하는 것이 아니라
 //          recursive 로 함수를 생성한것!!
 //  		foo(int, double, char) => foo(double, char) => foo(char)
-
+//			=>복습할때 "godbolt.org" 를 최대한 활용하세요. 아래 코드 넣어 보세요
 template<typename T, typename ... Types>
 void foo(T value, Types ... args)
 {
