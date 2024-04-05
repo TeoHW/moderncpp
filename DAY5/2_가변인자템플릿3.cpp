@@ -18,7 +18,9 @@ template<typename ... Types> void foo(Types ... args)
 
 	goo( (++args)...);	// goo(++e1, ++e2, ++e3)   
 
-	goo( hoo(args...)); // ?
+//	goo( hoo(args...)); // goo( hoo(e1, e2, e3)) 인데, hoo 인자는 한개이므로
+						// error
+	goo( hoo(args)... );// goo(hoo(e1), hoo(e2), hoo(e3));
 }
 
 
