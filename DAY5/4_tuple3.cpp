@@ -11,6 +11,7 @@ struct tuple<T, Ts...>
 {
 	T value;
 
+	tuple() = default;
 	tuple(const T& v) : value{v} {}
 };
 
