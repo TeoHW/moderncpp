@@ -70,3 +70,10 @@ int main()
 
 
 // modern c++ design 책(2003년책) - 안드레이 알렉산드레스큐
+
+// 책 scott- meyer 의 effective 시리즈
+//	effective-C++
+//  more effective-C++
+//  effective-modern C++  
+
+// https://www.modernescpp.com/
