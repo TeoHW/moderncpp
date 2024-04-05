@@ -20,9 +20,16 @@ struct tuple<T, Ts...> : public tuple<Ts...>
 
 int main()
 {
+//	tuple<> t0;  					// 3번째 부모
+//	tuple<             short> t1; 	// 2번째 부모
+//	tuple<     double, short> t2; 	// 1번째 부모
+//	tuple<int, double, short> t3; 	// 자신
+
 	tuple<int, double, short> t(1, 3.4, 2);
 
-	std::cout << ? << std::endl; // 1
-	std::cout << ? << std::endl; // 3.4
-	std::cout << ? << std::endl; // 2
+	std::cout << t.value << std::endl; // 1
+	
+	std::cout << static_cast<tuple<double, short>&>(t).value << std::endl; // 3.4
+	
+	std::cout << static_cast<tuple<short>&>(t).value << std::endl; // 2
 }
