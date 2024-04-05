@@ -46,13 +46,24 @@ int main()
 
 	std::cout << &v2[0] << std::endl; // 되야 할까요 ? 안되야 할까요 ?	
 
-
+/*
 	auto p1 = v1.begin();
 	auto p2 = v2.begin();
 
-	*p1 = 10;
-	*p2 = 10;
+	*p1 = 10; // 되야 합니다.
+	*p2 = 10; // 상수 vector 의 반복자 이므로 쓰기 안되야 합니다.
+
+	// 즉, STL begin(), end() 모두 컨테이너가 상수 일때와 아닐때
+	// 다른 종류의 반복자 반환.
+*/
 
 }
-
-
+/*
+template<typename T>
+class vector 
+{
+public:
+	쓰기가_가능한_iterator   begin()        { ... };
+	쓰기가_불가능한_iterator begin() const  { ... };
+};
+*/
