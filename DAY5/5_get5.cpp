@@ -38,9 +38,9 @@ struct tuple_element<N, tuple<T, Ts...>>
 
 
 template<int N, typename TP>
-튜플타입_TP에_보관된_N번째_요소의_타입& get(TP& t)
+typename tuple_element<N, TP>::type& get(TP& t)
 {
-	return static_cast<TP의_N번째_부모타입&>(t).value;
+	return static_cast<typename tuple_element<N, TP>::tupleType&>(t).value;
 }
 
 
@@ -48,5 +48,10 @@ int main()
 {
 	tuple<int, double, short> t(1, 3.4, 2);
 
-	foo(t);
+	auto a = get<1>(t); // 결국 "t.second_member_name" 같이
+					    // 구조체의 필드를 이름으로 접근하는 것과 
+						// 완전히 동일한 기계어 코드가 됩니다.
+	get<0>(t) = 20;
+
+	std::cout << get<0>(t) << std::endl;
 }
