@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <cstring>
+#include <string>
 
 // shallow copy vs deep copy
 
@@ -14,14 +14,6 @@ public:
 		strcpy_s(name, strlen(n)+1, n);
 	}
 	~Cat() { delete[] name; }
-
-	// 깊은 복사로 구현한 복사 생성자
-	Cat(const Cat& other) : age{other.age}
-	{
-		name = new char[strlen(other.name) + 1];
-		strcpy_s(name, strlen(other.name)+1, other.name);
-
-	}
 };
 int main()
 {
