@@ -13,7 +13,9 @@ void Show(Types ... args)
 	// ((((std::cout << e1) << e2 ) << e3 )
 
 	// pack 의 이름뿐 아니라 pack 을 사용하는 패턴도 가능
-	(printv(args), ... );
+	(printv(args) , ... );
+	// pack      op ...   
+	// printv(1), printv(2), printv(3)
 }
 
 int main()
