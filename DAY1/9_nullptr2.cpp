@@ -1,25 +1,33 @@
 ﻿// 8_nullptr2
 #include <iostream>
+struct mynullptr_t
+{
+	template<typename T>
+	operator T*() { return 0; }
+};
+
+void foo(int* p) {}
 
 template<typename F, typename ARG>
-void forward_parameter(F f, ARG arg) // int arg = 0 이므로 foo(arg)
+void forward_parameter(F f, ARG arg)
 {
 	f(arg);
 }
 
-void foo(int* p) {}
-
 int main()
 {
 	int n = 0;
-	foo(0); // ok
-//	foo(n);	// error. literal 0은 포인터로 암시적 형변환 되지만 
-			//        0으로 초기화된 변수를 전달할수는 없습니다.
+	// foo(0); // bad code
+	foo(nullptr); // good code
+	// foo(n); // 0을 담고 있는 정수형 변수는 안된다. 
+	foo(&n);
 
-	foo(0); // ok. 
-//	forward_parameter(foo, 0); // foo(0) 으로 실행해 달라는 의도 ?
-								// 하지만 error.
-	forward_parameter(foo, nullptr); // 이렇게 하면 ok.
+	// forward_parameter(foo,  0); // 에러 발생 - 0은 int형으로 전달되기 때문에 int*형으로 변형할 수 없다
+	forward_parameter(foo, nullptr);	// 이건 성공
+	// forward_parameter(foo, n); // 에러 발생 - n은 int형으로 전달되기 때문에 int*으로 안됨
+	mynullptr_t mynullptr;
+	forward_parameter(foo, mynullptr);
+
 }
 
 

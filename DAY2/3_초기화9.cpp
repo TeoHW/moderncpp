@@ -13,24 +13,22 @@ public:
 int main()
 {
 	Point p1(1);		// Point(int)
+
 	Point p2(1, 2);		// Point(int, int)
-	Point p3({ 1,2 });	// Point(std::initializer_list<int>)
+	Point p3({ 1,2 }); 	// Point(init_list)
+	Point p4{ 1,2 };	// Point(init_list), 만약 생성자에 init_list가 없으면 int,int로 호출된다
 
-	Point p4{ 1,2 };	// 1. Point(std::initializer_list<int>) 가 있으면 사용
-						// 2. 없으면 Point(int, int)
-
-	Point p5(1, 2, 3); 	// error. Point(int, int, int) 생성자 없음.
-	Point p6{1, 2, 3};  // ok.  Point(std::initializer_list<int>)
-	Point p7 = { 1,2,3 };// ok. explicit 아님.
+	Point p5(1, 2, 3); 	// Point(int, int, int)가 없기 때문에 에러 발생
+	Point p6{ 1, 2, 3 }; // init_list로 호출되기 때문에 가능
+	Point p7 = { 1,2,3 };// init_list로 호출되기 때문에 가능 (explicit 아니기 때문에 가능)
 
 	// 생성자 인자로 std::initializer_list 를 사용하면
-	// {} 초기화로 가변 인자로 전달 가능합니다.
-	
-	// 그래서 "C++11" 부터 모든 STL 컨테이너는 아래 처럼 사용가능합니다.
+	// {} 초기화로 가변 인자로 전달 가능합니다. 
 	std::vector<int> v1{1,2,3,4,5,6};
 	std::vector<int> v2 = {1,2,3,4,5,6};
 
-	std::vector v3{1,2,3,4,5,6}; // C++17 부터는 타입 생략도 가능.
+	// c++17부터는 타입도 생략 가능
+	std::vector v3{1,2,3,4,5,6};
 }
 
 

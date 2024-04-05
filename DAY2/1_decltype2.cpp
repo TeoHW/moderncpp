@@ -2,19 +2,20 @@
 int main()
 {
 	int n = 10;
-	int& r = n;
+	int& r = n;	// r === n
 	const int c = 10;
 	int* p = &n;
 
-	// 규칙 1. () 안에 id-expression(심볼의 이름만) 이 있을때
-	// => 심볼의 선언과 동일한 타입으로 결정 		   
-	decltype(n) d1; // int d1
-	decltype(r) d2; // int& d2    		초기값 없으므로 error
-	decltype(c) d3; // const int d3		초기값 없으므로 error
-	decltype(p) d4; // int* d4
+	auto a = r; // 
 
-	// 아래 2개 차이점 잘 기억해 두세요
-	auto a = r;    // int a = r;
-	decltype(r) d; // int& d 
+	// 규칙1. ()안에 id-expression(심볼의이름) 만 있을 때
+	// => 심볼(변수, 함수..) 선언만 보고 선언과 똑같은 타입으로 추론
 
+	decltype(n) d1; // int d1;
+	decltype(r) d2; // int& d2; // 초기값이 없어서 에러
+	decltype(c) d3; // const int d3; // 초기값 없어서 에러
+	decltype(p) d4; // int* d4;
+
+	auto a = r; // r을 보고 const, ref, volatile제거, .. int a = r;
+	decltype(r) d2 = r; // int& d2 = r;
 }

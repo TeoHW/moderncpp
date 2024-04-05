@@ -1,36 +1,30 @@
 ﻿// 핵심 : rvalue, lvalue 의 개념은 
 //       변수(객체)에 부여되는 개념이 아닌
 //       표현식(expression) 에 부여 되는 개념
-
 // expression : 한개의 값으로 계산되는 코드 집합
-// statement  : 실행되는 단위. ; 으로 끝나는 한줄의 문장
-
-// result : expression 의 결과로 나오는 한개의 값
-
-// result 의 2가지 특성
-// 1. type
-// 2. value category ( rvalue, lvalue )
+// statement  : 실행되는 단위, 문장  ; 으로 끝나는 한줄의 문장
+// result	  : expression의 결과로 나오는 한개의 값
+// 				두개의 특징, 
+//				1. type
+//				2. value category
 
 int main()
 {
-	int n = 1;
+	int n = 0;
+	// expression  : 한개의 값으로 계산되는 것
+	n;
+	n*3;
+	n*3+2;
+	// 모두 결과가 하나로 나오기 때문에 expression, 결과는 result
+	// 위 코드의 결과 result
+	// type : int
+	// value category : rvalue expression
 
-	n * 3 + 2;  // result : 5
-			    // result type : int
-				// result value category : rvalue expressioon
+	(n+n) = 10; // (n+n) : rvalue
+	(n = 10) = 20; // (n = 10) : lvalue
 
-	(n + n) = 10; // error. "n+n" 은 rvalue expression
+	const int cc = 10;
+	cc = 20; // error
+	// cc는 lvalue expression이나 read only lvalue이다. (immutable lvalue expression)
 
-	(n = 10) = 20; // ok. "n=10" 의 최종 결과로 나오는 값은 "n"!!
-					// 사용자가 할당한 이름이 있는 메모리 공간
-					// 즉, lvalue expression
-
-	n = 10;	// "n" 자체도 하나의 값으로 계산되는 표현식!!!
-			// lvalue expression
-
-	const int c = 10;
-	c = 20; // ??error..
-			// c 는 lvalue expression ? rvalue expression ?
-			// 이름도 있고, 주소도 구할수 있다.
-			// immutable(read only) lvalue expression
 }

@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 class Counter
 {
@@ -29,7 +29,4 @@ int main()
 	std::cout << "-------------------\n";
 
 	std::cout << c.get() << std::endl;
-
-//	std::cout << "A" << "B";
-	// cout.operator<<("A").operator<<("B")
 }
