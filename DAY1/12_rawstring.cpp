@@ -4,19 +4,28 @@
 
 int main()
 {
-	std::string s1 = "\\\\.\\pipe\\server"; // \\.\pipe\server
-	std::cout << s1 << std::endl;			// \\.\pipe\server
+	// 기존 문자열의 '\' 는 특수문자를 표기하기 위한 문자
+	// "\\" 하면 \ 를 한개 표기 한것
 
-	// R 은 raw string의 시작을 의미
+	std::string s1 = "\\\\.\\pipe\\server";
+
+	// Raw String 문자열 : \ 를 일반 문자로 취급
+	// R : Raw String 문자열 임을 나타내고
 	// "( : 시작
-	// )" : 끝
-	std::string s2 = R"(\\.\pipe\server)"; 	// \\.\pipe\server
-	std::cout << s2 << std::endl;			// \\.\pipe\server
+	// )" : 종료
+	std::string s2 = R"(\\.\pipe\server)";
 
-	// " 를 표기하려면
-	std::string s3 = R"(\\.\pip"e\server)"; 	
-	std::cout << s3 << std::endl;	
-	// 종료의 의미인 )" 를 표기하려면
-	// 시작과 끝의 형태를 동일하게 변경하면 된다. " 과 ( 괄호의 사이에 특정 문자 추가 가능
-	std::string s3 = R"**(\\.\pip)"e\server)**";
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+
+	// " 를 표기 하려면
+	std::string s3 = R"(\\.\pi"pe\server)";
+
+	// 종료의 의미인 )" 를 표기하려면 => 시작과 끝을 나타내는 표시를 변경
+	// 아래 코드는
+	// "***( : 시작
+	// )***" : 종료
+	std::string s4 = R"***(\\.\pi)"pe\server)***";
 }
+
+

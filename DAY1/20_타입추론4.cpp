@@ -17,13 +17,10 @@ template<typename T> void goo(T& a)
 {
 }
 
-
-// 규칙3. 인자가 T&& 일 때
-// 다음 이 시간에...  
+// 규칙 3. 인자가 T&& 일때 
+// => 아주 중요.. 내일의 주제..
 template<typename T> void hoo(T&& a)
 {
-	std::cout << "hoo" << __PRETTY_FUNCTION__ << std::endl;
-
 }
 
 
