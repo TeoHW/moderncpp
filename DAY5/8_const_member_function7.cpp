@@ -17,8 +17,16 @@ public:
 	//---------------------------------------------------------
 	// C++23 이 나오기 전에는 아래 처럼 2개를 만들어야 합니다.
 	// => 그런데, 구현이 동일합니다.
-	T& operator[](int idx)       { return buff[idx];}
-	const T& operator[](int idx) const { return buff[idx];}
+//	T& operator[](int idx)       { return buff[idx];}
+//	const T& operator[](int idx) const { return buff[idx];}
+
+	// explicit object parameter 문법에 템플릿을 사용하면
+	// => 위 2개 함수가 자동생성됩니다.
+	template<typename U>
+	std::conditional_t<std::is_const_v<U>, const T&, T&>  operator[](this U& self, int idx) 
+	{ 
+		return self.buff[ idx ];
+	}
 };
 
 int main()
