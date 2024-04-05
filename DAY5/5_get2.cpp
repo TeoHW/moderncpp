@@ -32,4 +32,14 @@ int main()
 	std::cout << static_cast<tuple<double, short>&>(t).value << std::endl; // 3.4
 	
 	std::cout << static_cast<tuple<short>&>(t).value << std::endl; // 2
+
+
+//	auto a = get<1>(t); // t에서 1 번째 요소 얻기
 }
+/*
+template<int N, typename TP>
+튜플타입_TP에_보관된_N번째_요소의_타입& get(TP& t)
+{
+	return static_cast<TP의_N번째_부모타입&>(t).value;
+}
+*/
