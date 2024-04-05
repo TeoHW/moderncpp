@@ -1,3 +1,5 @@
+#include <iostream>
+
 // Step 3. 모든 요소 보관하기
 
 template<typename ... Ts>
