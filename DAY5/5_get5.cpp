@@ -67,3 +67,6 @@ int main()
 }
 
 //pt.y =10; // *(&pt + y의offset(4)) = 10
+
+
+// modern c++ design 책(2003년책) - 안드레이 알렉산드레스큐
