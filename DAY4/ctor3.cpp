@@ -15,22 +15,17 @@ public:
 
 //--------------
 // 아래 클래스의 문제점을 찾으세요
+// Stream 생성자가 먼저 호출되기 때문에 buf에 대한 생성이 이뤄지지 않은 상태이기 때문에 오류 발생
+// 변수의 생성자 호출은 부모 클래스의 생성자 호출 이후에 이루어짐
+// 결론 : 자신의 멤버데이터를 기반 클래스의 생성자에 절대로 보내지 말 것
+
 class StreamWithBuffer : public Stream
 {
 	Buffer buf{1024};
 public:
 	StreamWithBuffer() : Stream(buf) {}
 };
-//================================
-/*
-// 위코드는 결국 아래 코드 입니다.
-class StreamWithBuffer : public Stream
-{
-	Buffer buf;// {1024};
-public:
-	StreamWithBuffer() : Stream(buf), buf{1024} {}
-};
-*/
+
 int main()
 {
 	StreamWithBuffer swb;

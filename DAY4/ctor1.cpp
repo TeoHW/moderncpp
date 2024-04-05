@@ -14,47 +14,26 @@ struct DM // DerivedMember
 struct Base
 {
 	BM bm;
+	// 개발자 코드에서는  BM bm 생성자 코드 호출이 없어서 컴파일러가 넣어준다. 
+	// Base()      { std::cout << "Base()"    << std::endl; }
+	// Base() // Base() : bm()
+	// {
+	// 	std::cout << "Base()"    << std::endl; 
+	// }
+	
 
-	// 개발자 코드		// 컴파일러가 변경한 코드
-	Base()      		// Base() : bm()
-	{ 
-		std::cout << "Base()"    << std::endl; 
-	}
-
-	Base(int a) 		// Base(int) : bm() 
-	{ 
-		std::cout << "Base(int)" << std::endl; 
-	}
-	~Base()     
-	{ 
-		std::cout << "~Base()"   << std::endl;
-		
-		// BM::~BM()
-	}
+	Base(int a) { std::cout << "Base(int)" << std::endl; }
+	~Base()     { std::cout << "~Base()"   << std::endl;}
 };
 struct Derived : public Base 
 {
 	DM dm;
-	Derived()      	// Derived() : Base(), dm()
-	{ 
-		std::cout << "Derived()" << std::endl;	
-	}
-
-	Derived(int a) // Derived(int ) : Base(), dm()
-	{ 
-		std::cout << "Derived()" << std::endl;	
-	}
-	~Derived()     
-	{ 
-		std::cout << "~Derived()" << std::endl;
-
-		// DM::~DM()
-		// Base::~Base()
-	}
+	Derived() : Base(0)     { std::cout << "Derived()" << std::endl;	}
+	Derived(int a):Base(0) { std::cout << "Derived()" << std::endl;	}
+	~Derived()     { std::cout << "~Derived()" << std::endl;}
 };
 int main()
 {
-	Derived d1; 	// call Derived::Derived()
-
-//	Derived d2(7);
+	Derived d1; 
+	Derived d2(7);
 }

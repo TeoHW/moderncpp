@@ -1,8 +1,6 @@
 #include <iostream>
-
-// 아래 코드는 문제가 없는 코드입니다.
-// => 다음 코드가 문제 입니다(ctor3.cpp)
-
+// 이 코드는 문제 없음
+// ctor3 은 문제있음
 class Buffer
 {
 public:

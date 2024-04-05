@@ -5,19 +5,17 @@
 // traits 의 종류
 // 1. 타입질의 : is_xxx<T>::value
 // 2. 변형타입얻기 : xxx<T>::type
-
-template<typename T> struct remove_pointer 
+template<typename T> struct remove_pointer
 {
 	using type = T;
 };
-
-template<typename T> struct remove_pointer< T* >
+template<typename T> struct remove_pointer<T*>
 {
 	using type = T;
 };
 
 int main()
 {
-	remove_pointer<int*>::type n1;  // int n1
+	remove_pointer<int*>::type n1; 
 }
 

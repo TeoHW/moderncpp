@@ -9,7 +9,7 @@ int main()
 
 	// 람다표현식의 원리(lambda expression)
 	std::sort(v.begin(), v.end(), [](int a, int b) { return a < b; });
-
+	// 이 람다식은 아래와 같이 변환된다
 	//--------------------------------------------------------------
 	class CompilerGeneratedName 
 	{
@@ -22,7 +22,6 @@ int main()
 	std::sort(v.begin(), v.end(), CompilerGeneratedName{} );
 
 }
-
 
 
 

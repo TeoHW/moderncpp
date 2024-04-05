@@ -31,5 +31,7 @@ template<typename F, typename ... Types>
 decltype(auto) chronometry(F&& f, Types&& ... args)
 {
 	stop_watch sw(true);
+	
 	return std::invoke(std::forward<F>(f), std::forward<Types>(args)...);
+	// 	return f( std::forward<T>(arg) ... ); 같은 의미 인데. 좀더 좋은 코드입니다
 }

@@ -9,8 +9,8 @@ int main()
 {
 	int n = 10;
 
-	foo(n);  // T = int&,  foo(int& )
-	foo(10); // T = int    foo(int&&)
+	foo(n);  //
+	foo(10); //
 }
 
 

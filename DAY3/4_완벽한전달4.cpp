@@ -38,4 +38,3 @@ int main()
 
 	chronometry(hoo, 10);  
 }
-

@@ -12,15 +12,15 @@ private:
 
 public:
 	// 아래 한줄에 대해서 생각해 보세요. 최선의 코드일까요 ?
-	// C++98 시절에는 "최선의 코드"
-	// C++11 에서는 최선은 아닙니다.
-//	void set_name(const std::string& n) { name = n; } // 항상 복사
-//	void set_name(const std::string& n) { name = std::move(n); } // 이렇게 해도 항상 복사
-
-	// C++11 이후의 최선의 setter : 2개를 만들어야 합니다
 	void set_name(const std::string& n) { name = n; }
 	void set_name(std::string&& n) { name = std::move(n); }
 
+	template<typename T>
+	void set_name2(T&& n){
+		// name = n;					// 항상 copy
+		// name = std::move(n);		// 항상 move
+		name = std::forward<T>(n);	// lvalue/rvalue에 따라 다르게 처리
+	}
 };
 
 int main()
@@ -29,6 +29,7 @@ int main()
 	std::string s2 = "lee";
 
 	People p;
+
 	p.set_name(s1);
 	p.set_name(std::move(s2));	
 

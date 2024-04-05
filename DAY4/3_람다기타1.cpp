@@ -1,17 +1,29 @@
-﻿void foo(auto n) {} 
+﻿// 7_람다기타1 - 150
+class Test
+{
+	int data = 0;
+public:
+	void foo()
+	{
+		// 멤버 데이타 캡쳐 ?
+		auto f = [](int a) { return a + data; };
+
+	}
+};
 
 int main()
 {
+	Test t;
+
 	// generic lambda
-	// => 인자로 auto 를 사용하는 람다
-	// => C++14 부터 지원.
-	// => 아래 람다에서 1, 2번째 인자타입은 달라도 됩니다.
-//	auto f = [](int a, int b) { return a + b; };
+	// 인자로 auto를 사용하는 람다
 	auto f = [](auto a, auto b) { return a + b; };
 
-	int    n = f(1, 2);
-	double d1 = f(3.2, 3.2);
-	double d2 = f(3.2, 2);
+	int n = f(1,2);
+	double d1 = (3.2, 3.4);
+	double d2 = (2, 3.4);
+
+	t.foo(); 
 }
 
 // generic 람다의 원리
@@ -19,8 +31,7 @@ class CompilerGeneratedName
 {
 public:
 	template<typename T1, typename T2>
-	inline auto operator()(T1 a, T2 b) const 
-	{
-		return a + b;
+	inline auto operator()(T1 a, T2 b) const{
+		return a+b;
 	}
 };

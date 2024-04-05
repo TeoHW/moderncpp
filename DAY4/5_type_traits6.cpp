@@ -6,7 +6,7 @@
 
 // C++14 부터 별명을 만들었습니다.
 template<typename T>
-using remove_pointer_t = std::remove_pointer<T>::type;
+using remove_pointer_t = std::remove_pointer<int*>::type;
 
 int main()
 {

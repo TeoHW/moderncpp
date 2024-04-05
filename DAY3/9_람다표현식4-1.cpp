@@ -1,40 +1,21 @@
-#include <functional> // std::less<> 가 이안에 있습니다.
+﻿#include <iostream>
 
 template<typename T>
 void sort(T pred)
 {
 }
 
-int main()
-{
-	// 아래 코드를 평가해 보세요.. 좋은 코드일까요 ?
-	// 문제점 : sort() 함수가 3개 생성됩니다.
-	/*
-	sort( [](int a, int b) { return a < b;} );
-	sort( [](int a, int b) { return a < b;} );
-	sort( [](int a, int b) { return a < b;} );
-	*/
+int main(){
 
-	// 동일한 람다 표현식이 여러번 사용되면 되도록 auto 변수에 담아서 사용하세요
-//	auto cmp = [](int a, int b) { return a < b;};
+	// 아래 코드를 평가해 보세요.. 좋은 코드일까요?
+	sort([](int a, int b){return a < b;});
+	sort([](int a, int b){return a < b;});
+	sort([](int a, int b){return a < b;});
+	// 위 코드는 동일한 비교정책을 가지고 있지만 람다표현식을 썼기 때문에 sort가 3개 생성되어 비효율코드이다
 
-//	sort( cmp );
-//	sort( cmp );
-//	sort( cmp );
-
-	sort( std::less{} );
-	sort( std::less{} );
-	sort( std::less{} );
+	auto cmp = [](int a, int b){return a < b;};
+	sort(cmp);
+	sort(cmp);
+	sort(cmp);
+	sort(cmp);
 }
-/*
-class Point
-{
-public:
-	Point() = default;
-};
-
-int main()
-{
-	Point p;
-}
-*/

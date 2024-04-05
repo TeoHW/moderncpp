@@ -5,24 +5,18 @@ public:
 	static void static_member_function(int a) {}
 };
 
+void foo(int a) {}
+
 int main()
 {
-	// 멤버 함수의 주소를 담는 포인터 만드는 법
-//	void(*f)(int) = &Dialog::member_function; // error
+	// void(*f)(int) = &Dialog::member_function;
 
-	// #1. 멤버 함수 포인터 만드는 법 알아두세요
-	void(Dialog::*f)(int) = &Dialog::member_function; // ok
+	// 아래처럼 하면 멤버함수도 담을 수 있다. 
+	// 그러나 이렇게까지 써야될까???
+	void (Dialog::*f2)(int) = &Dialog::member_function;
+	// f2(10); 	// 불가능하다
+	Dialog d;
+	(d.*f2)(10);
+	
 
-	// #2. 멤버 함수 포인터 사용법
-//	f(10); // error. 객체가 없습니다. 객체.member_function() 이어야 합니다.
-
-	Dialog dlg;
-//	dlg.f(10); // error. dlg 안에 f라는 멤버는 없습니다.
-
-	// 이럴때 사용하는 연산자가 "pointer to member operator"인 .* 연산자
-//	dlg.*f(10); // 연산자 우선순위 문제로 에러
-				// .* 보다 ( ) 가 우선순위 높음
-
-	(dlg.*f)(10); // ok.. 이코드가 멤버 함수 포인터로
-				//			함수를 호출하는 코드
 }

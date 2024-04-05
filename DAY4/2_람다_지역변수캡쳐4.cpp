@@ -18,8 +18,7 @@ int main()
 
 	// 나이가 n 사람을 찾고 싶다. ?
 	int n = 15;
-	auto ret = std::find_if(v.begin(), v.end(), 
-				[n](const People& p) { return p.age == n;} );
+	auto ret = std::find_if(v.begin(), v.end(), [&n](const People& p){return n == p.age;} );
 }
 
 

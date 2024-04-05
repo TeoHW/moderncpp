@@ -1,37 +1,31 @@
 // 7_완벽한전달1 - 113 page
 #include <iostream>
+int cnt;
+void foo(int a)  { a = 999; cnt++;}
+void goo(int& a) { a += 100; cnt++; std::cout << a << std::endl;}
 
-void foo(int a)  {}
-void goo(int& a) { a = 100; }
 
 
-// 완벽한 전달을 하려면
-// 1. 인자의 복사본이 없어야 하고(call by value 가 아닌 reference)
-// 2. const 속성의 추가도 없어야 한다.
-// 결국 아래 처럼 2개 만들어야 합니다.
-// 그런데, 아래 코드는 "한개의 문제"가 있습니다. 
-// => 다음 소스 참고
-
-template<typename F>
-void chronometry( F f, int& arg)
+// 특정 함수의 수행 시간 측정
+template<typename F, typename T>
+void chronometry( F f, T&& arg)
 {
+	// 현재 시간 기록
 	f(arg);
+	// 시간을 구해서 "f(arg)" 수행 시간 출력
 }
-
-template<typename F>
-void chronometry( F f, int&& arg)
-{
-	f(arg);
-}
-
 
 int main()
 {
 	int n = 10;
 
-	chronometry(foo, 10); 
-	chronometry(goo, n);  
-
+	foo(10);
+	// goo(n);
+	chronometry(foo, 10);
+	chronometry(goo, n);
 	std::cout << n << std::endl;
+	chronometry(goo, 30);
+	std::cout << n << std::endl;
+	std::cout << cnt << std::endl;
 }
 

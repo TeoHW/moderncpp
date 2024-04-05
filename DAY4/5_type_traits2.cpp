@@ -24,9 +24,9 @@ template<typename T> void foo(const T& a)
 {
 	// T : int, int*
 	if ( is_pointer<T>::value )
-		std::cout << "포인터" << std::endl;
+		std::cout << "pointer" << std::endl;
 	else
-		std::cout << "포인터 아님" << std::endl;
+		std::cout << "is not pointer" << std::endl;
 }
 
 int main()

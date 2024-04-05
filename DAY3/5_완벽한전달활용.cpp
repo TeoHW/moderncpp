@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+#define log std::cout
 class Point
 {
 	int x, y;
@@ -38,7 +39,7 @@ int main()
 
 
 
-	std::cout << "-----" << std::endl;
+	log << "-----" << std::endl;
 }
 
 // STL 컨테이너에(vector, list)
@@ -54,4 +55,3 @@ int main()
 
 // 3. user define type의 포인터를 보관하면
 //    => push_back, push_front, insert 해도 됩니다.
-

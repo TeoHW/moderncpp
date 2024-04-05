@@ -1,7 +1,5 @@
-// 복습할때 ? 채워 보세요.. 
-// => 함수안에서 x,y 와 같이 사용가능하도록
-void foo(? p) {}
-void goo(? p) {}
+void foo(int (*p)[2]) {}
+void goo(int (*p)[2][2]) {}
 
 int main()
 {
