@@ -1,4 +1,4 @@
-﻿// C++98 초기화의 문제점 - 54 page
+// C++98 초기화의 문제점 - 54 page
 #include <complex>
 
 int main()
@@ -29,4 +29,5 @@ class Test
 // C#
 //int[] x1 = {1,2,3,4};
 //int[] x1 = [1,2,3,4];
+
 

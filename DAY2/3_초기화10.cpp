@@ -9,13 +9,17 @@ int main()
 
 
 	// 아래 2줄의 차이점은 ?
-	std::vector<int> v3(10, 2);	// vector(std::size_t, int), 10개를 2로 초기화
-	std::vector<int> v4{10, 2};	// vector(std::initializer<int>), 2개를 10, 2로 초기화
+	std::vector<int> v3(10, 2); // vector(std::size_t, int)
+								// => 10개의 요소를 2로 초기화
+
+	std::vector<int> v4{10, 2}; // vector(std::initializer_list<int>>) 
+								// => 2개를 10, 2 로 초기화
 
 
 	// 아래 코드에서 에러는 ?
-	std::vector<int> v5 = 10;	// error. 생성자가 explicit vector (std::size_t, int)
-	std::vector<int> v6 = {10}; // ok, vector(std::initializer<int>) 는 explicit가 아님
+	std::vector<int> v5 = 10;	// error. explicit vector(std::size_t)
+	std::vector<int> v6 = {10}; // ok. vector(std::initializer_list<int>>)
+								// 는 explicit 가 아닙니다.
 }
 
 

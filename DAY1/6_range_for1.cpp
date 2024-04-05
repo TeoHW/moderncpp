@@ -9,12 +9,12 @@ int main()
 	// 전통적인 for 문
 	for (int i = 0; i < v.size(); i++)
 	{
-		std::cout << i << std::endl;
 	}
 
-	// c++11 의 새로운 for- range for라는 이름을 가진 문법
-	for(auto i:v){
-		std::cout << i << std::endl;
+	// C++11 의 새로운 for
+	for( int e : v )
+	{
+		std::cout << e << std::endl;
 	}
 }
 
